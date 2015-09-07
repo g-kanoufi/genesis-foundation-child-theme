@@ -30,7 +30,11 @@ function ygf_truncated_excerpt_link() {
 }
 
 
-
+/**
+ *
+ * Add class .th to single post featured images
+ *
+ **/
 add_action( 'genesis_entry_content', 'single_post_featured_image', 5 );
 
 function single_post_featured_image() {
@@ -40,6 +44,26 @@ function single_post_featured_image() {
 		}
 	}
 }
+
+/**
+ *
+ * Add flex-video wrapper to oembeded items
+ *
+ **/
+
+function ygf_embed_filter( $html, $url, $attr ) {
+    $yt = "/(?:https?:\\/\\/)?(?:www\\.)?(?:youtu\\.be\\/|youtube\\.com\\/(?:embed\\/|v\\/|playlist\\?|watch\\?v=|watch\\?.+(?:&|&#38;);v=))([a-zA-Z0-9\\-_]{11})?(?:(?:\\?|&|&#38;)index=((?:\\d){1,3}))?(?:(?:\\?|&|&#38;)?list=([a-zA-Z\\-_0-9]{34}))?(?:\\S+)?/"; 
+
+    $vm = "/(?:https?:\/\/)?(?:www\.)?(?:vimeo\.com\/)((?:\d){1,3})?(?:\S+)?/";
+ 
+    if(preg_match_all($yt, $url, $matches))
+       $html = '<div class="flex-video">'. $html .'</div>';
+    if(preg_match_all($vm, $url, $matches))
+       $html = '<div class="flex-video vimeo">'. $html .'</div>';
+
+    return $html;
+}
+add_filter('embed_oembed_html', 'ygf_embed_filter', 90, 3 );
 
 
 /**

@@ -52,6 +52,7 @@ function child_theme_setup() {
         include_once( CHILD_DIR . '/lib/structure/gallery.php' );
         include_once( CHILD_DIR . '/lib/structure/head.php' );
         include_once( CHILD_DIR . '/lib/structure/header.php' );
+        include_once( CHILD_DIR . '/lib/structure/loops.php' );
         include_once( CHILD_DIR . '/lib/structure/menu.php' );
         include_once( CHILD_DIR . '/lib/structure/post.php' );
         include_once( CHILD_DIR . '/lib/structure/scripts.php' );
