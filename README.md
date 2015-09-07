@@ -10,6 +10,8 @@ Master branch gives you a pre-compiled theme ready to use. For more cutomization
 * This is totally open source, so feel free to use/change as you wish.
 * Licensed under GPLv2.
 
+You can see a working demo [here](http://demo-foundation.lostwebdesigns.com)
+
 How to use
 ---------------
 

@@ -112,7 +112,7 @@ function ygf_seo_site_title() {
         $inside = sprintf( '<a href="%s">%s</a>', trailingslashit( home_url() ), get_bloginfo( 'name' ) );
 
         // Determine which wrapping tags to use
-        $wrap = is_home() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+        $wrap = is_home() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'h1';
 
         // A little fallback, in case an SEO plugin is active
         $wrap = is_home() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
