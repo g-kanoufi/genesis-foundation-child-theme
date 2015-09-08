@@ -4,6 +4,9 @@ Genesis Foundation Child Theme
 This child theme is made for Genesis and uses all Zurb's Foundation 5 super powers.
 
 Master branch gives you a pre-compiled theme ready to use. For more cutomization/performances. check out the `gulp-branch` where you will be able to add/remove any scripts/css not used in your theme.
+Still you can add all the foundation components and adjust your js and scss assets, just do a `bower install` and adjust your settings in codekit.
+
+Very soon a gulp version will also be available.
 
 * All bases functionalities from Genesis can be used. Just note that Primary and Secondary menu are changed to top-left and top-right.
 * This child theme comes with a lot of ready to use common Genesis functions, check the `lib` folder.
