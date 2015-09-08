@@ -1,0 +1,27 @@
+{
+  "name": "Foundation Genesis Child Theme",
+  "version": "1.0.0",
+  "homepage": "https://github.com/g-kanoufi/foundation-genesis-child-theme",
+  "authors": [
+    "Guillaume Kanoufi <guillaume@lostwebdesigns.com>"
+  ],
+  "description": "A child theme for Genesis based on Foundation 5 framework",
+  "keywords": [
+    "Genesis",
+    "Foundation",
+    "Child",
+    "theme"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2",
+    "foundation-icon-fonts": "*"
+  }
+}
