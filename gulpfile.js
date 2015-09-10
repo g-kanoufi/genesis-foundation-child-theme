@@ -118,7 +118,7 @@ gulp.task('styles', function () {
                 .pipe(filter('**/*.css')) // Filtering stream to only css files
                 .pipe(cmq()) // Combines Media Queries
                 .pipe(reload({stream:true})) // Inject Styles when style file is created
-                .pipe(rename({ suffix: '.min' }))
+                //.pipe(rename({ suffix: '.min' }))
                 .pipe(minifycss({
                     maxLineLen: 80
                 }))
@@ -134,15 +134,35 @@ gulp.task('styles', function () {
  * Look at src/js and concatenate those files, send them to assets/js where we then minimize the concatenated file.
 */
 gulp.task('vendorsJs', function() {
-    return      gulp.src(['./assets/js/vendor/*.js', bower+'**/*.js'])
-                .pipe(concat('vendors.js'))
-                .pipe(gulp.dest('./assets/js'))
+    return      gulp.src([bower+'/foundation/js/vendor/jquery.cookie.js'
+                        , bower+'/foundation/js/vendor/fastclick.js'
+                        , bower+'/foundation/js/foundation/foundation.js'
+                        , bower+'/foundation/js/foundation/foundation.abide.js'
+                        , bower+'/foundation/js/foundation/foundation.accordion.js'
+                        , bower+'/foundation/js/foundation/foundation.alert.js'
+                        , bower+'/foundation/js/foundation/foundation.clearing.js'
+                        , bower+'/foundation/js/foundation/foundation.dropdown.js'
+                        , bower+'/foundation/js/foundation/foundation.equalizer.js'
+                        , bower+'/foundation/js/foundation/foundation.interchange.js'
+                        , bower+'/foundation/js/foundation/foundation.joyride.js'
+                        , bower+'/foundation/js/foundation/foundation.magellan.js'
+                        , bower+'/foundation/js/foundation/foundation.offcanvas.js'
+                        , bower+'/foundation/js/foundation/foundation.orbit.js'
+                        , bower+'/foundation/js/foundation/foundation.reveal.js'
+                        , bower+'/foundation/js/foundation/foundation.slider.js'
+                        , bower+'/foundation/js/foundation/foundation.tab.js'
+                        , bower+'/foundation/js/foundation/foundation.tooltip.js'
+                        , bower+'/foundation/js/foundation/foundation.topbar.js'
+                        , './js/app.js'
+                ])
+                .pipe(concat('app.js'))
+                //.pipe(gulp.dest('./js/min/'))
                 .pipe(rename( {
-                    basename: "vendors",
-                    suffix: '.min'
+                    basename: "app",
+                    suffix: '-min'
                 }))
                 .pipe(uglify())
-                .pipe(gulp.dest('./assets/js/'))
+                .pipe(gulp.dest('./js/min/'))
                 .pipe(notify({ message: 'Vendor scripts task complete', onLast: true }));
 });
 
@@ -155,13 +175,13 @@ gulp.task('vendorsJs', function() {
 
 gulp.task('scriptsJs', function() {
     return      gulp.src('./js/scripts.js')
-                .pipe(gulp.dest('./js/min/'))
+                //.pipe(gulp.dest('./js/min/'))
                 .pipe(rename( {
                     basename: "scripts",
-                    suffix: '.min'
+                    suffix: '-min'
                 }))
                 .pipe(uglify())
-                .pipe(gulp.dest('./js/'))
+                .pipe(gulp.dest('./js/min/'))
                 .pipe(notify({ message: 'Custom scripts task complete', onLast: true }));
 });
 
