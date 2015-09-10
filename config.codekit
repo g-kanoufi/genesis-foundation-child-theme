@@ -191,7 +191,7 @@
 		},
 	"\/bower_components\/foundation\/js\/foundation.min.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bower_components\/foundation\/js\/foundation.min.js",
 		"outputAbbreviatedPath": "\/bower_components\/foundation\/js\/min\/foundation.min-min.js",
@@ -4137,10 +4137,18 @@
 	],
 "lastSavedByUser": "Guillaume Kanoufi",
 "manualImportLinks": {
+	"\/js\/app.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/foundation.min.js",
+			"position": 0,
+			"type": 0
+			}
+		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
-	"displayValue": "foundesis",
+	"displayValue": "genesis-foundation-child-theme",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "globe_yellow"
 	},
