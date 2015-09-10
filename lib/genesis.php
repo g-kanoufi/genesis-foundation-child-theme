@@ -23,6 +23,15 @@ add_theme_support( 'genesis-responsive-viewport' );
 add_theme_support( 'genesis-structural-wraps', array('footer-widgets', 'footer' ) );
 
 /**
+ *
+ * Add new accessibility feats
+ *
+ **/
+add_theme_support( 'genesis-accessibility', 
+  array( 'headings', 'drop-down-menu', 'search-form', 'skip-links', 'rems' ) 
+);
+
+/**
  * Add support for custom backgrounds
  *
  * @since 2.0.2
