@@ -28,6 +28,7 @@ var project             = 'genesis-foundation-child-theme', // Project name, use
                 'screenshot.png',
 
                 // exclude files and folders
+                '!gulpfile.js',
                 '!node_modules/**/*',
                 '!bower_components/**/*',
                 '!style.css.map',
@@ -49,11 +50,12 @@ var project             = 'genesis-foundation-child-theme', // Project name, use
         concat       = require('gulp-concat'),
         notify       = require('gulp-notify'),
         cmq          = require('gulp-combine-media-queries'),
-        runSequence  = require('gulp-run-sequence'),
+        runSequence  = require('run-sequence'),
         sass         = require('gulp-sass'),
         plugins      = require('gulp-load-plugins')({ camelize: true }),
         ignore       = require('gulp-ignore'), // Helps with ignoring files and directories in our run tasks
-        rimraf       = require('gulp-rimraf'), // Helps with removing files and directories in our run tasks
+        vinylPaths = require('vinyl-paths'),
+        del       = require('del'), // Helps with removing files and directories in our run tasks
         zip          = require('gulp-zip'), // Using to zip up our packaged theme into a tasty zip file that can be installed in WordPress!
         plumber      = require('gulp-plumber'), // Helps prevent stream crashing on errors
         cache        = require('gulp-cache'),
@@ -196,7 +198,7 @@ gulp.task('images', function() {
 // Add the newer pipe to pass through newer images only
     return      gulp.src(['./images/**/*.{png,jpg,gif}'])
                 .pipe(newer('./images/'))
-                .pipe(rimraf({ force: true }))
+                //.pipe(del())
                 .pipe(imagemin({ optimizationLevel: 7, progressive: true, interlaced: true }))
                 .pipe(gulp.dest('./images/'))
                 .pipe( notify( { message: 'Images task complete', onLast: true } ) );
@@ -221,13 +223,13 @@ gulp.task('images', function() {
  gulp.task('cleanup', function() {
     return      gulp.src(['./bower_components', '**/.sass-cache','**/.DS_Store'], { read: false }) // much faster
                 .pipe(ignore('node_modules/**')) //Example of a directory to ignore
-                .pipe(rimraf({ force: true }))
+                //.pipe(rimraf({ force: true }))
                 // .pipe(notify({ message: 'Clean task complete', onLast: true }));
  });
  gulp.task('cleanupFinal', function() {
     return      gulp.src(['./bower_components','**/.sass-cache','**/.DS_Store'], { read: false }) // much faster
                 .pipe(ignore('node_modules/**')) //Example of a directory to ignore
-                .pipe(rimraf({ force: true }))
+                //.pipe(rimraf({ force: true }))
                 // .pipe(notify({ message: 'Clean task complete', onLast: true }));
  });
 
@@ -270,6 +272,10 @@ gulp.task('buildImages', function() {
  });
 
 
+ gulp.task('removeBuildFolder', function () {
+     return del([build]);
+ });
+
  // ==== TASKS ==== //
  /**
   * Gulp Default Task
@@ -280,7 +286,7 @@ gulp.task('buildImages', function() {
 
  // Package Distributable Theme
  gulp.task('build', function(cb) {
-    runSequence('styles', 'cleanup', 'vendorsJs', 'scriptsJs',  'buildFiles', 'buildImages', 'buildZip','cleanupFinal', cb);
+    runSequence('styles', 'cleanup', 'vendorsJs', 'scriptsJs',  'buildFiles', 'buildImages', 'buildZip','removeBuildFolder', 'cleanupFinal', cb);
  });
 
 
