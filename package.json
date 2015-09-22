@@ -5,7 +5,9 @@
     "type": "git",
     "url": "https://github.com/g-kanoufi/genesis-foundation-child-theme"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vinyl-paths": "^2.0.0"
+  },
   "devDependencies": {
     "browser-sync": "^2.4.0",
     "gulp": "^3.8.11",
