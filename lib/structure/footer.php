@@ -11,6 +11,6 @@ add_filter( 'genesis_footer_creds_text', 'ygf_footer_creds_text' );
  */
 function ygf_footer_creds_text() {
 	$org_name = genesis_get_option('organization', 'child-settings');
-	 return 'Copyright [footer_copyright] <a href="https://lostwebdesigns.com">'._e('Lost Webdesign</a> - Foundesis - A Genesis Child theme made with <span class="♥">♥</span> and Foundation 5', 'genesis-foundation-child-theme');
+	 return 'Copyright [footer_copyright] <a href="https://lostwebdesigns.com">Lost Webdesign</a> - Foundesis - ' . __('A Genesis Child theme made with <span class="♥">♥</span> and Foundation 5', 'genesis-foundation-child-theme');
 
 }
