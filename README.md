@@ -19,7 +19,7 @@ You can see a working demo [here](http://demo-foundation.lostwebdesigns.com)
 How to use
 ---------------
 
-Nothing is more easy, download .zip or clone this repository, add it to your themes folder or upload it(only a .zip file) from your website adminstration panel and you are ready to go.
+Nothing is more easy, download .zip or clone this repository, add it to your themes folder or upload it(only a .zip file) from your website administration panel and you are ready to go.
 
 If you want to use it with gulp, just run `bower install && npm install` to install all dependencies, then just run `gulp`.
 A `gulp build` task is also prepacked giving you your optimized theme in a ready to upload .zip file
