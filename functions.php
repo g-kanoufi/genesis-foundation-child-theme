@@ -39,7 +39,7 @@ function child_theme_setup() {
 
 	include_once( CHILD_DIR . '/lib/theme-functions.php' );
 
-	
+
 	/****************************************
 	Structure set up
 	****************************************/
@@ -73,6 +73,7 @@ function child_theme_setup() {
 
 
 }
+
 add_action('after_setup_theme', 'ygf_theme_setup');
 function ygf_theme_setup(){
     load_theme_textdomain('genesis-foundation-child-theme', get_stylesheet_directory() . '/languages');

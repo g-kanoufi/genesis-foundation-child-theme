@@ -17,3 +17,4 @@ function ygf_load_stylesheets() {
 	      wp_enqueue_style( 'ygf', get_stylesheet_directory_uri() . '/style.css', array('app'), null );
 	}
 }
+

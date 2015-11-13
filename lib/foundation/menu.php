@@ -23,7 +23,8 @@ add_theme_support(
         array(
                 'top-bar-l' => 'Left Top Bar', // registers the menu in the WordPress admin menu editor
                 'top-bar-r' => 'Right Top Bar',
-                //'mobile-off-canvas' => 'Mobile - Off Canvas',
+                'mobile-off-canvas' => 'Mobile - Off Canvas',
+
         )
 );
 
@@ -80,6 +81,7 @@ if ( ! function_exists( 'ygf_mobile_off_canvas' ) ) {
       wp_nav_menu(array(
           'container' => false,                           // remove nav container
           'container_class' => '',                        // class of container
+          'items_wrap' => '<ul id="%1$s" class="%2$s"><li><label>Navigation</label></li>%3$s</ul>',
           'menu' => '',                                   // menu name
           'menu_class' => 'off-canvas-list',              // adding custom nav class
           'theme_location' => 'mobile-off-canvas',        // where it's located in the theme
@@ -99,7 +101,7 @@ if ( ! function_exists( 'ygf_mobile_off_canvas_display' ) ) {
       if ( has_nav_menu('mobile-off-canvas') ) {
           echo '<aside class="left-off-canvas-menu" aria-hidden="true">';
               ygf_mobile_off_canvas();
-          echo '</aside>';
+          echo '</aside><a class="exit-off-canvas"></a>';
       }
     }
     add_action( 'genesis_before_header', 'ygf_mobile_off_canvas_display');
