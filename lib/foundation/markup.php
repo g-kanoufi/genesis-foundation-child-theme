@@ -4,8 +4,9 @@
  * add Foundation Classes
  */
 // Main layouts - Genesis attr class related
-//add_filter( 'genesis_attr_body',         'ygf_off_canvas_body_class');
-//add_filter( 'genesis_attr_site-container', 'ygf_off_canvas_site_container_class');
+add_action('genesis_before', 'ygf_off_canvas_container_open');
+add_action('genesis_after', 'ygf_off_canvas_container_close');
+add_filter( 'genesis_attr_site-container', 'ygf_off_canvas_site_container_class');
 add_filter( 'genesis_attr_site-header',         'ygf_add_header_class');
 add_filter( 'genesis_attr_title-area',         'ygf_add_titlearea_class' );
 add_filter( 'genesis_attr_header-widget-area',         'ygf_add_header_widgetarea_class');
@@ -27,18 +28,22 @@ add_filter('ygf-classes-to-add', 'ygf_modify_classes_based_on_template', 10, 3);
 add_filter( 'comment_form_defaults', 'ygf_change_comments_button_class' );
 
 /* OffCanvas, not yet supported */
-// Body Class
-function ygf_off_canvas_body_class($attributes){
+// Add the external div for off canvas(if menu is active)
+function ygf_off_canvas_container_open(){
       if ( has_nav_menu('mobile-off-canvas') ) {
-          $attributes['class'] .= ' off-canvas-wrap ';
+          echo '<div class="off-canvas-wrap" data-offcanvas>';
       }
-      return $attributes;
+}
+function ygf_off_canvas_container_close(){
+      if ( has_nav_menu('mobile-off-canvas') ) {
+          echo '</div>';
+      }
 }
 
 // Site Container Class
 function ygf_off_canvas_site_container_class($attributes){
       if ( has_nav_menu('mobile-off-canvas') ) {
-          $attributes['class'] .= ' inner-wrap ';
+          $attributes['class'] .= ' inner-wrap';
       }
       return $attributes;
 }

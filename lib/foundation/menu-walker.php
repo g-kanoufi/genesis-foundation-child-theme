@@ -70,7 +70,7 @@ class Ygf_Offcanvas_Walker extends Walker_Nav_Menu {
   }
 
   function start_lvl( &$output, $depth = 0, $args = array() ) {
-    $output .= "\n<ul class=\"left-submenu\">\n<li class=\"back\"><a href=\"#\">"._e('Back', 'genesis-foundation-child-theme')."</a></li>\n";
+    $output .= "\n<ul class=\"left-submenu\">\n<li class=\"back\"><a href=\"#\">Back</a></li>\n";
   }
 
 }
